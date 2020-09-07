@@ -1,0 +1,41 @@
+{
+  "name": "assignment-a2-descriptive-statistics",
+  "version": "1.0.0",
+  "description": "1DV025 - Assignment A2 - Descriptive Statistics",
+  "type": "module",
+  "main": "src/app.js",
+  "scripts": {
+    "start": "node src/app.js",
+    "lint": "npx eslint ./src || exit 0",
+    "lint:fix": "npx eslint ./src --fix || exit 0",
+    "test": "npx mocha --recursive || exit 0"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git@gitlab.lnu.se:1dv025/management/template/assignment-a2-descriptive-statistics.git"
+  },
+  "contributors": [
+    "Johan Leitet <johan.leitet@lnu.se>",
+    "Mats Loock <mats.loock@lnu.se>",
+    "// TODO: YOUR NAME <YOUR EMAIL>"
+  ],
+  "license": "MIT",
+  "private": true,
+  "devDependencies": {
+    "@lnu/eslint-config": "^1.1.0",
+    "chai": "^4.2.0",
+    "eslint": "^7.8.1",
+    "eslint-plugin-import": "^2.22.0",
+    "eslint-plugin-jsdoc": "^30.3.3",
+    "eslint-plugin-node": "^11.1.0",
+    "eslint-plugin-promise": "^4.2.1",
+    "eslint-plugin-standard": "^4.0.1",
+    "mocha": "^8.1.3"
+  },
+  "eslintConfig": {
+    "extends": "@lnu",
+    "env": {
+      "mocha": true
+    }
+  }
+}
