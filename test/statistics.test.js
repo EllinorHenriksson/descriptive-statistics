@@ -251,11 +251,11 @@ describe('standardDeviation', () => {
 
   describe('return value', () => {
     it('standardDeviation([1, 4, 3, 15, 72, 41, 30, 27, 72, 8, 42, 36, 33, 46, 44]) should return a value close to 21.93', () => {
-      expect(() => statistics.standardDeviation([1, 4, 3, 15, 72, 41, 30, 27, 72, 8, 42, 36, 33, 46, 44]).to.be.closeTo(21.93, 0.01))
+      expect(statistics.standardDeviation([1, 4, 3, 15, 72, 41, 30, 27, 72, 8, 42, 36, 33, 46, 44])).to.be.closeTo(21.93, 0.01)
     })
 
     it('standardDeviation([30, 31, 33, 34, 35, 34, 28, 34, 33, 34, 36, 35, 32, 31, 32]) should return a value close to 2.07', () => {
-      expect(() => statistics.standardDeviation([30, 31, 33, 34, 35, 34, 28, 34, 33, 34, 36, 35, 32, 31, 32]).to.be.closeTo(2.07, 0.01))
+      expect(statistics.standardDeviation([30, 31, 33, 34, 35, 34, 28, 34, 33, 34, 36, 35, 32, 31, 32])).to.be.closeTo(2.07, 0.01)
     })
   })
 })
