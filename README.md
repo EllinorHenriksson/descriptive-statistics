@@ -12,7 +12,7 @@ Din uppgift är att slutföra implementationen av modulen `statistics.js` vars e
 
 Det är viktigt att du följer anvisningarna för `src/statistics.js` då modulerna `src/app.js` och `test/statistics.test.js` använder sig av den enligt beroendediagrammet nedan.
 
-![Beroendediagram](https://gitlab.lnu.se/1dv025/templates/assignment-a2-descriptive-statistics/-/raw/master/.readme/dependency-graph.svg)
+![Beroendediagram](https://gitlab.lnu.se/1dv025/templates/assignment-a2-descriptive-statistics/-/raw/main/.readme/dependency-graph.svg)
 
 ### src/statistics.js
 
@@ -26,7 +26,7 @@ Modulen ska exportera funktioner som kan bestämma maximum- och minimumvärden, 
 * @author Johan Leitet <johan.leitet@lnu.se>
 * @author Mats Loock <mats.loock@lnu.se>
 * @author // TODO: Write your name here <Write your email address here>
-* @version 1.0.0
+* @version 1.1.0
 */
 
 // ------------------------------------------------------------------------------
@@ -54,7 +54,7 @@ Modulen ska exportera funktioner som kan bestämma maximum- och minimumvärden, 
 
 /**
  * Returns several descriptive statistics (average, maximum, median, minimum,
- * mode, range and standard deviation) from a set of numbers.
+ * mode, range, and standard deviation) from a set of numbers.
  *
  * @param {number[]} numbers - The set of data to be analyzed.
  * @throws {TypeError} The passed argument is not an array.
