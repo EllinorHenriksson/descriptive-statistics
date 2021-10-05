@@ -31,17 +31,17 @@
 // TODO: Write your code here.
 
 /**
- * Returns the average value for all elements in the passed array.
+ * Returns the average value for all numbers in the passed array.
  *
  * @param {number[]} numbers - The set of data to be analyzed.
  * @returns {number} The average value.
  */
 function average (numbers) {
-  return numbers.reduce((previousValue, currentValue) => previousValue + currentValue, 0) / numbers.length
+  return numbers.reduce((sum, value) => sum + value, 0) / numbers.length
 }
 
 /**
- * Returns the highest value of the elements in the passed array.
+ * Returns the highest value in the passed array.
  *
  * @param {number[]} numbers - The set of data to be analyzed.
  * @returns {number} The highest value.
@@ -51,7 +51,7 @@ function maximum (numbers) {
 }
 
 /**
- * Returns the median value of the elements in the passed array.
+ * Returns the median value of the numbers in the passed array.
  *
  * @param {number[]} numbers - The set of data to be analyzed.
  * @returns {number} The median value.
@@ -74,7 +74,7 @@ function median (numbers) {
 }
 
 /**
- * Returns the lowest value of the elements in the passed array.
+ * Returns the lowest value in the passed array.
  *
  * @param {number[]} numbers - The set of data to be analyzed.
  * @returns {number} The lowest value.
@@ -84,13 +84,12 @@ function minimum (numbers) {
 }
 
 /**
- * Returns the mode value(s) of the elements in the passed array.
+ * Returns the mode value(s) of the passed array.
  *
  * @param {number[]} numbers - The set of data to be analyzed.
  * @returns {number[]} The mode value(s).
  */
 function mode (numbers) {
-  const modeValues = []
   const frequencyTable = {}
 
   // Adds the numbers of numbers as keys to frequencyTable and gives them a value corresponding to how many times they occur in the array
@@ -103,6 +102,7 @@ function mode (numbers) {
   }
 
   const maxFrequency = Math.max(...Object.values(frequencyTable))
+  const modeValues = []
 
   // Adds all keys in frequencyTable that are equal to maxFrequency to modeValues
   for (const key of Object.keys(frequencyTable)) {
@@ -115,7 +115,7 @@ function mode (numbers) {
 }
 
 /**
- * Returns the range value of the elements in the passed array.
+ * Returns the range value of the numbers in the passed array.
  *
  * @param {number[]} numbers - The set of data to be analyzed.
  * @returns {number} The range value.
@@ -124,13 +124,28 @@ function range (numbers) {
   return Math.max(...numbers) - Math.min(...numbers)
 }
 
+/**
+ * Returns the standard deviation value for the numbers in the passed array.
+ *
+ * @param {number[]} numbers - The set of data to be analyzed.
+ * @returns {number} The standard deviation value.
+ */
+function standardDeviation (numbers) {
+  const averageValue = numbers.reduce((sum, value) => sum + value, 0) / numbers.length
+
+  const squaredDifference = numbers.map(value => {
+    return (value - averageValue) ** 2
+  })
+
+  return Math.sqrt(squaredDifference.reduce((sum, value) => sum + value, 0) / squaredDifference.length)
+}
+
 /*
 const array = [4, 8, 2, 4, 5]
-const result = range(array)
+const result = standardDeviation(array)
 console.log(`The original array is: ${array}`)
 console.log(`The return value is: ${result}`)
 */
-
 
 /**
  * Returns several descriptive statistics (average, maximum, median, minimum,
