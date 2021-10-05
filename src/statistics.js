@@ -41,6 +41,16 @@ function average (numbers) {
 }
 
 /**
+ * Returns the highest value of the elements in the passed array.
+ *
+ * @param {number[]} numbers - The set of data to be analyzed.
+ * @returns {number} The highest value.
+ */
+function maximum (numbers) {
+  return Math.max(...numbers)
+}
+
+/**
  * Returns several descriptive statistics (average, maximum, median, minimum,
  * mode, range and standard deviation) from a set of numbers.
  *
