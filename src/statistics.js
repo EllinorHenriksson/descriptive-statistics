@@ -31,6 +31,19 @@
 // TODO: Write your code here.
 
 /**
+ * Returns the average value for all elements in the passed array.
+ *
+ * @param {number[]} numbers - The set of data to be analyzed.
+ * @returns {number} The average value.
+ */
+function average (numbers) {
+  const copyNumbers = Array.from(numbers)
+  const sum = copyNumbers.reduce((previousValue, currentValue) => previousValue + currentValue, 0)
+  const averageValue = sum / copyNumbers.length
+  return averageValue
+}
+
+/**
  * Returns several descriptive statistics (average, maximum, median, minimum,
  * mode, range and standard deviation) from a set of numbers.
  *
