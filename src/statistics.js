@@ -86,7 +86,7 @@ function minimum (numbers) {
 /**
  * Returns the mode value(s) of the elements in the passed array.
  *
- * @param {*} numbers - The set of data to be analyzed.
+ * @param {number[]} numbers - The set of data to be analyzed.
  * @returns {number[]} The mode value(s).
  */
 function mode (numbers) {
@@ -114,12 +114,23 @@ function mode (numbers) {
   return modeValues
 }
 
+/**
+ * Returns the range value of the elements in the passed array.
+ *
+ * @param {number[]} numbers - The set of data to be analyzed.
+ * @returns {number} The range value.
+ */
+function range (numbers) {
+  return Math.max(...numbers) - Math.min(...numbers)
+}
+
 /*
 const array = [4, 8, 2, 4, 5]
-const result = mode(array)
+const result = range(array)
 console.log(`The original array is: ${array}`)
 console.log(`The return value is: ${result}`)
 */
+
 
 /**
  * Returns several descriptive statistics (average, maximum, median, minimum,
