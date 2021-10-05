@@ -51,6 +51,33 @@ function maximum (numbers) {
 }
 
 /**
+ * Returns the median value of the elements in the passed array.
+ *
+ * @param {number[]} numbers - The set of data to be analyzed.
+ * @returns {number} The median value.
+ */
+function median (numbers) {
+  const copyNumbers = Array.from(numbers)
+  copyNumbers.sort((a, b) => a - b)
+  let medianValue
+  if (copyNumbers.length % 2 !== 0) {
+    const i = Math.trunc(copyNumbers.length / 2)
+    medianValue = copyNumbers[i]
+  } else {
+    const i = copyNumbers.length / 2 - 1
+    const ii = copyNumbers.length / 2
+    medianValue = (copyNumbers[i] + copyNumbers[ii]) / 2
+  }
+  return medianValue
+}
+
+/*
+const array = [4, 8, 2, 4, 5]
+const result = average(array)
+console.log(result)
+*/
+
+/**
  * Returns several descriptive statistics (average, maximum, median, minimum,
  * mode, range and standard deviation) from a set of numbers.
  *
