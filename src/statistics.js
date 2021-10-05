@@ -71,10 +71,21 @@ function median (numbers) {
   return medianValue
 }
 
+/**
+ * Returns the lowest value of the elements in the passed array.
+ *
+ * @param {number[]} numbers - The set of data to be analyzed.
+ * @returns {number} The lowest value.
+ */
+function minimum (numbers) {
+  return Math.min(...numbers)
+}
+
 /*
 const array = [4, 8, 2, 4, 5]
-const result = average(array)
-console.log(result)
+const result = minimum(array)
+console.log(`The original array is: ${array}`)
+console.log(`The return value is: ${result}`)
 */
 
 /**
