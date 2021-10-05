@@ -60,6 +60,7 @@ function median (numbers) {
   const copyNumbers = Array.from(numbers)
   copyNumbers.sort((a, b) => a - b)
   let medianValue
+
   if (copyNumbers.length % 2 !== 0) {
     const i = Math.trunc(copyNumbers.length / 2)
     medianValue = copyNumbers[i]
@@ -68,6 +69,7 @@ function median (numbers) {
     const ii = copyNumbers.length / 2
     medianValue = (copyNumbers[i] + copyNumbers[ii]) / 2
   }
+
   return medianValue
 }
 
@@ -81,9 +83,40 @@ function minimum (numbers) {
   return Math.min(...numbers)
 }
 
+/**
+ * Returns the mode value(s) of the elements in the passed array.
+ *
+ * @param {*} numbers - The set of data to be analyzed.
+ * @returns {number[]} The mode value(s).
+ */
+function mode (numbers) {
+  const modeValues = []
+  const frequencyTable = {}
+
+  // Adds the numbers of numbers as keys to frequencyTable and gives them a value corresponding to how many times they occur in the array
+  for (const number of numbers) {
+    if (frequencyTable[number]) {
+      frequencyTable[number] += 1
+    } else {
+      frequencyTable[number] = 1
+    }
+  }
+
+  const maxFrequency = Math.max(...Object.values(frequencyTable))
+
+  // Adds all keys in frequencyTable that are equal to maxFrequency to modeValues
+  for (const key of Object.keys(frequencyTable)) {
+    if (frequencyTable[key] === maxFrequency) {
+      modeValues.push(key)
+    }
+  }
+
+  return modeValues
+}
+
 /*
 const array = [4, 8, 2, 4, 5]
-const result = minimum(array)
+const result = mode(array)
 console.log(`The original array is: ${array}`)
 console.log(`The return value is: ${result}`)
 */
