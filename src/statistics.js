@@ -37,10 +37,7 @@
  * @returns {number} The average value.
  */
 function average (numbers) {
-  const copyNumbers = Array.from(numbers)
-  const sum = copyNumbers.reduce((previousValue, currentValue) => previousValue + currentValue, 0)
-  const averageValue = sum / copyNumbers.length
-  return averageValue
+  return numbers.reduce((previousValue, currentValue) => previousValue + currentValue, 0) / numbers.length
 }
 
 /**
