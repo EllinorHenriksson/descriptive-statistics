@@ -31,12 +31,33 @@
 // TODO: Write your code here.
 
 /**
+ * Throws exceptions if the passed argument is not an array, if it does not contain any elements or if not all elements are numbers.
+ *
+ * @param {number[]} numbers - The value to be validated.
+ */
+function validation (numbers) {
+  if (!Array.isArray(numbers)) {
+    throw new TypeError('The passed argument is not an array.')
+  }
+
+  if (numbers.length === 0) {
+    throw new Error('The passed array contains no elements.')
+  }
+
+  if (numbers.some(x => typeof x !== 'number' || isNaN(x))) {
+    throw new TypeError('The passed array may only contain valid numbers.')
+  }
+}
+
+/**
  * Returns the average value for all numbers in the passed array.
  *
  * @param {number[]} numbers - The set of data to be analyzed.
  * @returns {number} The average value.
  */
-function average (numbers) {
+export function average (numbers) {
+  validation(numbers)
+
   return numbers.reduce((sum, value) => sum + value, 0) / numbers.length
 }
 
@@ -46,7 +67,9 @@ function average (numbers) {
  * @param {number[]} numbers - The set of data to be analyzed.
  * @returns {number} The highest value.
  */
-function maximum (numbers) {
+export function maximum (numbers) {
+  validation(numbers)
+
   return Math.max(...numbers)
 }
 
@@ -56,7 +79,9 @@ function maximum (numbers) {
  * @param {number[]} numbers - The set of data to be analyzed.
  * @returns {number} The median value.
  */
-function median (numbers) {
+export function median (numbers) {
+  validation(numbers)
+
   const copyNumbers = Array.from(numbers)
   copyNumbers.sort((a, b) => a - b)
   let medianValue
@@ -79,7 +104,9 @@ function median (numbers) {
  * @param {number[]} numbers - The set of data to be analyzed.
  * @returns {number} The lowest value.
  */
-function minimum (numbers) {
+export function minimum (numbers) {
+  validation(numbers)
+
   return Math.min(...numbers)
 }
 
@@ -89,10 +116,12 @@ function minimum (numbers) {
  * @param {number[]} numbers - The set of data to be analyzed.
  * @returns {number[]} The mode value(s).
  */
-function mode (numbers) {
+export function mode (numbers) {
+  validation(numbers)
+
   const frequencyTable = {}
 
-  // Adds the numbers of numbers as keys to frequencyTable and gives them a value corresponding to how many times they occur in the array
+  // Adds the numbers of numbers as keys to frequencyTable and gives them a value corresponding to how many times they occur in the array.
   for (const number of numbers) {
     if (frequencyTable[number]) {
       frequencyTable[number] += 1
@@ -104,14 +133,20 @@ function mode (numbers) {
   const maxFrequency = Math.max(...Object.values(frequencyTable))
   const modeValues = []
 
-  // Adds all keys in frequencyTable that are equal to maxFrequency to modeValues
+  // Adds all keys in frequencyTable that are equal to maxFrequency to modeValues.
   for (const key of Object.keys(frequencyTable)) {
     if (frequencyTable[key] === maxFrequency) {
       modeValues.push(key)
     }
   }
 
-  return modeValues
+  // Converts the elements from strings to numbers.
+  const modeValuesAsNumbers = modeValues.map(Number)
+
+  // Sorts the numbers in ascending order.
+  const sortedModeValues = modeValuesAsNumbers.sort((a, b) => a - b)
+
+  return sortedModeValues
 }
 
 /**
@@ -120,7 +155,9 @@ function mode (numbers) {
  * @param {number[]} numbers - The set of data to be analyzed.
  * @returns {number} The range value.
  */
-function range (numbers) {
+export function range (numbers) {
+  validation(numbers)
+
   return Math.max(...numbers) - Math.min(...numbers)
 }
 
@@ -130,7 +167,9 @@ function range (numbers) {
  * @param {number[]} numbers - The set of data to be analyzed.
  * @returns {number} The standard deviation value.
  */
-function standardDeviation (numbers) {
+export function standardDeviation (numbers) {
+  validation(numbers)
+
   const averageValue = numbers.reduce((sum, value) => sum + value, 0) / numbers.length
 
   const squaredDifference = numbers.map(value => {
@@ -139,13 +178,6 @@ function standardDeviation (numbers) {
 
   return Math.sqrt(squaredDifference.reduce((sum, value) => sum + value, 0) / squaredDifference.length)
 }
-
-/*
-const array = [4, 8, 2, 4, 5]
-const result = standardDeviation(array)
-console.log(`The original array is: ${array}`)
-console.log(`The return value is: ${result}`)
-*/
 
 /**
  * Returns several descriptive statistics (average, maximum, median, minimum,
@@ -159,17 +191,7 @@ console.log(`The return value is: ${result}`)
  */
 export function summary (numbers) {
   // TODO: Write your code here.
-  if (!Array.isArray(numbers)) {
-    throw new TypeError('The passed argument is not an array.')
-  }
-
-  if (numbers.length === 0) {
-    throw new Error('The passed array contains no elements.')
-  }
-
-  if (numbers.some(x => isNaN(x))) {
-    throw new TypeError('The passed array may only contain valid numbers.')
-  }
+  validation(numbers)
 
   const StatisticalSummary = {}
 
