@@ -159,6 +159,17 @@ console.log(`The return value is: ${result}`)
  */
 export function summary (numbers) {
   // TODO: Write your code here.
+  if (!Array.isArray(numbers)) {
+    throw new TypeError('The passed argument is not an array.')
+  }
+
+  if (numbers.length === 0) {
+    throw new Error('The passed array contains no elements.')
+  }
+
+  if (numbers.some(x => isNaN(x))) {
+    throw new TypeError('The passed array may only contain valid numbers.')
+  }
 
   const StatisticalSummary = {}
 
@@ -172,7 +183,3 @@ export function summary (numbers) {
 
   return StatisticalSummary
 }
-
-/*
-console.log(summary([4, 8, 2, 4, 5]))
-*/
