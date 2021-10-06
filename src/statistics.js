@@ -159,4 +159,20 @@ console.log(`The return value is: ${result}`)
  */
 export function summary (numbers) {
   // TODO: Write your code here.
+
+  const StatisticalSummary = {}
+
+  StatisticalSummary.average = average(numbers)
+  StatisticalSummary.maximum = maximum(numbers)
+  StatisticalSummary.median = median(numbers)
+  StatisticalSummary.minimum = minimum(numbers)
+  StatisticalSummary.mode = mode(numbers)
+  StatisticalSummary.range = range(numbers)
+  StatisticalSummary.standardDeviation = standardDeviation(numbers)
+
+  return StatisticalSummary
 }
+
+/*
+console.log(summary([4, 8, 2, 4, 5]))
+*/
