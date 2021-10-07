@@ -62,7 +62,7 @@ export function average (numbers) {
 }
 
 /**
- * Returns the highest value in the passed array.
+ * Returns the highest value of the numbers in the passed array.
  *
  * @param {number[]} numbers - The set of data to be analyzed.
  * @returns {number} The highest value.
@@ -99,7 +99,7 @@ export function median (numbers) {
 }
 
 /**
- * Returns the lowest value in the passed array.
+ * Returns the lowest value of the numbers in the passed array.
  *
  * @param {number[]} numbers - The set of data to be analyzed.
  * @returns {number} The lowest value.
@@ -121,7 +121,7 @@ export function mode (numbers) {
 
   const frequencyTable = {}
 
-  // Adds the numbers of numbers as keys to frequencyTable and gives them a value corresponding to how many times they occur in the array.
+  // Adds the numbers in the array as keys to frequencyTable and gives the keys a value corresponding to how many times the numbers occur in the array.
   for (const number of numbers) {
     if (frequencyTable[number]) {
       frequencyTable[number] += 1
@@ -158,7 +158,7 @@ export function mode (numbers) {
 export function range (numbers) {
   validation(numbers)
 
-  return Math.max(...numbers) - Math.min(...numbers)
+  return maximum(numbers) - minimum(numbers)
 }
 
 /**
@@ -170,7 +170,7 @@ export function range (numbers) {
 export function standardDeviation (numbers) {
   validation(numbers)
 
-  const averageValue = numbers.reduce((sum, value) => sum + value, 0) / numbers.length
+  const averageValue = average(numbers)
 
   const squaredDifference = numbers.map(value => {
     return (value - averageValue) ** 2
