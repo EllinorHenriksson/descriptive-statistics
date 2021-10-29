@@ -1,0 +1,30 @@
+{
+  "name": "assignment-a2-descriptive-statistics",
+  "version": "1.1.0",
+  "description": "1DV025 - Assignment A2 - Descriptive Statistics",
+  "type": "module",
+  "main": "src/app.js",
+  "scripts": {
+    "start": "node src/app.js",
+    "lint": "npx eslint ./src || exit 0",
+    "lint:fix": "npx eslint ./src --fix || exit 0",
+    "test": "npx --node-options=--experimental-vm-modules jest || exit 0"
+  },
+  "contributors": [
+    "Johan Leitet <johan.leitet@lnu.se>",
+    "Mats Loock <mats.loock@lnu.se>",
+    "// TODO: YOUR NAME <YOUR EMAIL>"
+  ],
+  "license": "MIT",
+  "private": true,
+  "devDependencies": {
+    "@lnu/eslint-config": "^1.1.3",
+    "eslint": "^7.32.0",
+    "eslint-config-standard": "^16.0.3",
+    "eslint-plugin-import": "^2.24.1",
+    "eslint-plugin-jsdoc": "^36.0.7",
+    "eslint-plugin-node": "^11.1.0",
+    "eslint-plugin-promise": "^5.1.0",
+    "jest": "^27.0.6"
+  }
+}
